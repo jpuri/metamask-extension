@@ -43,6 +43,7 @@ import { toChecksumHexAddress } from '../../../shared/modules/hexstring-utils';
 import {
   updateTransactionGasFees,
   getIsGasEstimatesLoading,
+  getNativeCurrency,
 } from '../../ducks/metamask/metamask';
 import { getGasLoadingAnimationIsShowing } from '../../ducks/app/app';
 import ConfirmTransactionBase from './confirm-transaction-base.component';
@@ -167,6 +168,7 @@ const mapStateToProps = (state, ownProps) => {
     txParamsAreDappSuggested(fullTxData);
   const isLedgerAccount = getAccountType(state) === KEYRING_TYPES.LEDGER;
   const isFirefox = getPlatform() === PLATFORM_FIREFOX;
+  const nativeCurrency = getNativeCurrency(state);
 
   return {
     balance,
@@ -216,6 +218,7 @@ const mapStateToProps = (state, ownProps) => {
     gasFeeIsCustom,
     isLedgerAccount,
     isFirefox,
+    nativeCurrency,
   };
 };
 
