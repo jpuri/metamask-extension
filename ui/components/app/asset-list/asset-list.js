@@ -15,10 +15,9 @@ import {
 } from '../../../selectors';
 import { getNativeCurrency } from '../../../ducks/metamask/metamask';
 import { useCurrencyDisplay } from '../../../hooks/useCurrencyDisplay';
-import { useI18nContext } from '../../../hooks/useI18nContext';
+import AddTokenButton from '../add-token-button';
 
 const AssetList = ({ onClickAsset }) => {
-  const t = useI18nContext();
   const history = useHistory();
   const selectedAccountBalance = useSelector(
     (state) => getCurrentAccountWithSendEtherInfo(state).balance,
