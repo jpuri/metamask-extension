@@ -46,7 +46,7 @@ describe('Import Token', () => {
 
     it('next button is disabled when no fields are populated', () => {
       const nextButton = wrapper.find(
-        '.button.btn-secondary.page-container__footer-button',
+        '.button.btn-primary.page-container__footer-button',
       );
 
       expect(nextButton.props().disabled).toStrictEqual(true);
@@ -87,7 +87,7 @@ describe('Import Token', () => {
 
     it('next', () => {
       const nextButton = wrapper.find(
-        '.button.btn-secondary.page-container__footer-button',
+        '.button.btn-primary.page-container__footer-button',
       );
       nextButton.simulate('click');
 
@@ -99,9 +99,7 @@ describe('Import Token', () => {
     });
 
     it('cancels', () => {
-      const cancelButton = wrapper.find(
-        'button.btn-default.page-container__footer-button',
-      );
+      const cancelButton = wrapper.find('.page-container__header-close');
       cancelButton.simulate('click');
 
       expect(props.clearPendingTokens.calledOnce).toStrictEqual(true);
