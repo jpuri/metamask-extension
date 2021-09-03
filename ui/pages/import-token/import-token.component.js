@@ -425,8 +425,9 @@ class ImportToken extends Component {
         title={this.context.t('importTokensCamelCase')}
         tabsComponent={this.renderTabs()}
         onSubmit={() => this.handleNext()}
+        hideCancel
         disabled={Boolean(this.hasError()) || !this.hasSelected()}
-        onCancel={() => {
+        onClose={() => {
           clearPendingTokens();
           history.push(mostRecentOverviewPage);
         }}
