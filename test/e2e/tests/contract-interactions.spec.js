@@ -80,12 +80,12 @@ describe('Deploy contract and call contract methods', function () {
         await driver.switchToWindow(dapp);
         await driver.clickElement('#depositButton');
         await driver.waitUntilXWindowHandles(3);
-        windowHandles = await driver.getAllWindowHandles();
-        popup = windowHandles.find(
-          (handle) => handle !== extension && handle !== dapp,
-        );
-        await driver.switchToWindow(popup);
 
+        windowHandles = await driver.getAllWindowHandles();
+        await driver.switchToWindowWithTitle(
+          'MetaMask Notification',
+          windowHandles,
+        );
         await driver.clickElement({ text: 'Confirm', tag: 'button' });
         await driver.switchToWindow(extension);
         await driver.waitForSelector(
