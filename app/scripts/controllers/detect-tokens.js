@@ -68,7 +68,9 @@ export default class DetectTokensController {
     for (const contractAddress in contracts) {
       if (
         contracts[contractAddress].erc20 &&
-        !this.tokenAddresses.includes(contractAddress.toLowerCase()) &&
+        !this.tokenAddresses.find((tokenAddress) =>
+          isEqualCaseInsensitive(tokenAddress, contractAddress),
+        ) &&
         !this.hiddenTokens.find((token) =>
           isEqualCaseInsensitive(token.address, contractAddress),
         )
