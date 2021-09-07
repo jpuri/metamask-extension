@@ -1303,11 +1303,7 @@ export function rejectWatchAsset(suggestedAssetID) {
     } finally {
       dispatch(hideLoadingIndication());
     }
-
     dispatch(closeCurrentNotificationWindow());
-    if (getEnvironmentType() === ENVIRONMENT_TYPE_NOTIFICATION) {
-      global.platform.closeCurrentWindow();
-    }
   };
 }
 
