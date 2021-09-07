@@ -184,7 +184,11 @@ describe('DetectTokensController', function () {
     const tokenAddressToAdd = erc20ContractAddresses[1];
     const tokenToAdd = contracts[tokenAddressToAdd];
 
-    const indexOfTokenToAdd = contractAddresses.indexOf(tokenAddressToAdd);
+    // because this index value is used to mock the return value for _getTokenBalances,
+    // we need to account for the fact that the detectTokens method will filter out the
+    // address for the "existingToken" added above from the tokensToDetect array
+    // meaning we have to subtract one from the index of this tokenAddress in the contract addresses array
+    const indexOfTokenToAdd = contractAddresses.indexOf(tokenAddressToAdd) - 1;
 
     const balances = new Array(contractAddresses.length);
     balances[indexOfTokenToAdd] = new BigNumber(10);
@@ -240,7 +244,11 @@ describe('DetectTokensController', function () {
     const tokenAddressToAdd = erc20ContractAddresses[1];
     const tokenToAdd = contracts[tokenAddressToAdd];
 
-    const indexOfTokenToAdd = contractAddresses.indexOf(tokenAddressToAdd);
+    // because this index value is used to mock the return value for _getTokenBalances,
+    // we need to account for the fact that the detectTokens method will filter out the
+    // address for the "existingToken" added above from the tokensToDetect array
+    // meaning we have to subtract one from the index of this tokenAddress in the contract addresses array
+    const indexOfTokenToAdd = contractAddresses.indexOf(tokenAddressToAdd) - 1;
 
     const balances = new Array(contractAddresses.length);
     balances[indexOfTokenToAdd] = new BigNumber(10);
